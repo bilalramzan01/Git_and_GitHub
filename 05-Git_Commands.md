@@ -30,3 +30,31 @@ This file contains 15 commonly used Git commands with their explanations. You ca
 - Use **descriptive commit messages** for clarity.  
 - Practice **branching and merging** to understand teamwork workflows.  
 - Use `git pull` before starting work to avoid conflicts.  
+
+# 10 Important Terminal Commands
+
+This file contains 10 commonly used **terminal commands** for navigating and managing files in Git Bash, Windows Command Prompt, or any CLI environment.
+
+---
+
+| Command | Purpose / Explanation |
+|---------|----------------------|
+| `cls` | Clear the terminal screen. |
+| `cd <folder>` | Change directory to the specified folder. Example: `cd Documents` |
+| `cd ..` | Go up one directory level. |
+| `mkdir <folder>` | Create a new folder. Example: `mkdir MyProject` |
+| `rmdir <folder>` | Remove/delete an empty folder. |
+| `rm -r <folder>` | Remove a folder and its contents (use with caution). |
+| `pwd` | Show the current directory path (present working directory). |
+| `ls` | List all files and folders in the current directory (Linux/macOS/Git Bash). |
+| `dir` | List all files and folders in the current directory (Windows CMD). |
+| `echo <text>` | Display text or variables in the terminal. Example: `echo Hello World` |
+
+---
+
+## ✅ Tips
+
+- `cd` and `ls` are the **most used commands** for navigation.  
+- `mkdir` + `cd` is a common workflow to create and enter a new project folder.  
+- Use `cls` or `clear` to **keep your terminal organized**.  
+- Be careful with `rm -r` as it **permanently deletes files/folders**.  
