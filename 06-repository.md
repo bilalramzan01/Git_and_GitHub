@@ -19,3 +19,15 @@ Inside a repository, you can keep all your project files, such as:
 ## Also Called
 
 - **Repo** (short form for Repository)
+
+# Git Init
+
+The `git init` command is used to **start a new Git repository** in your project folder.  
+It initializes Git so you can start tracking changes in your project.
+
+---
+
+## Syntax
+
+```bash
+git init [directory]
