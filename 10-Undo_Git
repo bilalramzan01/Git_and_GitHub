@@ -1,74 +1,55 @@
-# Undo Staged Change Notes
+# Git Undo & Log Notes
 
-Used when **changes are added (staged) but not yet committed**.
+This file covers **undoing changes** and **viewing commit history** in Git. Perfect for quick reference.
 
 ---
 
-## Git Reset
+## 1. Undo Staged Changes
+
+Used when **changes are added (staged) but not yet committed**.
 
 - **git reset <filename>** → Unstages a specific file, keeping its changes in your working directory.  
 - **git reset** → Unstages all staged files, keeping changes in your working directory.  
 
+**Modern Alternative:**
+
+- **git restore --staged <filename>** → Unstages a file. Safer and more explicit than `git reset`.
+
 ---
 
-## Modern Alternative
-
-- **git restore --staged <filename>** → Modern way to unstage a file.  
-- Performs the same action as `git reset <filename>` but is considered more **explicit and safer**.  
-
- # Undo Committed Change Notes
+## 2. Undo Last Commit
 
 Used when **changes are already committed** but you want to undo them.
 
----
+- **git reset HEAD~1** → Undo the last commit **but keeps changes** in working directory. *(Soft/Mixed reset: safe undo, can edit and recommit)*  
+- **git reset --hard HEAD~1** → Undo the last commit **and deletes all changes** made in that commit. *(Hard reset: permanent, use with caution)*  
 
-## Git Reset Commands
-
-- **git reset HEAD~1** → Undo the last commit **but keeps changes** in your working directory.  
-  - *Soft/Mixed reset*: Safe undo, allows editing and recommitting.  
-
-- **git reset --hard HEAD~1** → Undo the last commit **and deletes all changes** made in that commit.  
-  - *Hard reset*: Permanent removal of commit and changes. Use with caution.  
+**Tip:** Both move the **tip of your branch back by one commit**. Use soft/mixed to save work, hard to wipe everything completely.
 
 ---
 
-## Quick Warning
+## 3. Undo Committed Changes (Jump to Specific Commit)
 
-- Both commands move the **tip of your branch back by one commit**.  
-- Choose **soft/mixed** to save your work, **hard** only to wipe everything completely.  
+Used when you want to **go back to a specific commit** in Git history.
 
-# Undo Committed Changes (Jump to Specific Commit)
+- **git reset <commit-id>** → Move branch to specific commit, keeping changes from later commits as **unstaged**.  
+- **git reset --hard <commit-id>** → Move branch to specific commit and **delete all changes after it permanently**.
 
-Used when you want to **go back to a specific commit** in your Git history.
-
----
-
-## Git Reset Commands
-
-- **git reset <commit-id>** → Move the branch to a specific commit, keeping changes from later commits as **unstaged**.  
-  - Safe way to go back and edit/recommit changes.
-
-- **git reset --hard <commit-id>** → Move the branch to a specific commit and **delete all changes** after it permanently.  
-  - Dangerous: No way to undo once executed.
-
----
-
-## How It Works
-
-- `<commit-id>` is the **SHA-1 hash** of the commit you want to return to.  
+**How it works:**  
+- `<commit-id>` = SHA-1 hash of the commit.  
 - Git restores your project to the **exact snapshot** of that commit.  
-- Use soft reset to save work, hard reset to fully wipe unwanted commits.
+- Soft reset = save work; hard reset = fully wipe unwanted commits.
 
-# Git Log --oneline Notes
+---
 
-The `git log --oneline` command shows a **condensed view of your commit history**.  
+## 4. Git Log --oneline
+
+The `git log --oneline` command shows a **condensed view of your commit history**.
 
 - Each line = **one commit**  
-- Format: **Commit ID + Commit Message**  
+- Format: **Commit ID + Commit Message**
 
----
-
-## Example Terminal Output
+**Example Output:**
 
 | Commit ID | Branch/Pointer Info | Commit Message |
 |-----------|-------------------|----------------|
@@ -79,12 +60,9 @@ The `git log --oneline` command shows a **condensed view of your commit history*
 | 8db439a | — | CSS File Created |
 | 3d0ad17 | — | New HTML file created |
 
----
+**Key Notes:**  
+- **Commit ID:** Unique 7-character hash identifying the commit.  
+- **Branch/Pointer Info:** Shows current branch (`HEAD`) and remote tracking info.  
+- **Commit Message:** Short description of the changes.
 
-## Key Notes
-
-- **Commit ID:** Unique 7-character alphanumeric hash identifying the commit.  
-- **Branch/Pointer Info:** Shows current branch (`HEAD`) and remote tracking branch info.  
-- **Commit Message:** Short description of what was changed.  
-
-✅ Tip: Use `git log --oneline` for a **quick overview** of your project history.
+✅ Tip: Use `git log --oneline` for a **quick overview of your project history**.
