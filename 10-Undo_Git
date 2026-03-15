@@ -1,0 +1,90 @@
+# Undo Staged Change Notes
+
+Used when **changes are added (staged) but not yet committed**.
+
+---
+
+## Git Reset
+
+- **git reset <filename>** → Unstages a specific file, keeping its changes in your working directory.  
+- **git reset** → Unstages all staged files, keeping changes in your working directory.  
+
+---
+
+## Modern Alternative
+
+- **git restore --staged <filename>** → Modern way to unstage a file.  
+- Performs the same action as `git reset <filename>` but is considered more **explicit and safer**.  
+
+ # Undo Committed Change Notes
+
+Used when **changes are already committed** but you want to undo them.
+
+---
+
+## Git Reset Commands
+
+- **git reset HEAD~1** → Undo the last commit **but keeps changes** in your working directory.  
+  - *Soft/Mixed reset*: Safe undo, allows editing and recommitting.  
+
+- **git reset --hard HEAD~1** → Undo the last commit **and deletes all changes** made in that commit.  
+  - *Hard reset*: Permanent removal of commit and changes. Use with caution.  
+
+---
+
+## Quick Warning
+
+- Both commands move the **tip of your branch back by one commit**.  
+- Choose **soft/mixed** to save your work, **hard** only to wipe everything completely.  
+
+# Undo Committed Changes (Jump to Specific Commit)
+
+Used when you want to **go back to a specific commit** in your Git history.
+
+---
+
+## Git Reset Commands
+
+- **git reset <commit-id>** → Move the branch to a specific commit, keeping changes from later commits as **unstaged**.  
+  - Safe way to go back and edit/recommit changes.
+
+- **git reset --hard <commit-id>** → Move the branch to a specific commit and **delete all changes** after it permanently.  
+  - Dangerous: No way to undo once executed.
+
+---
+
+## How It Works
+
+- `<commit-id>` is the **SHA-1 hash** of the commit you want to return to.  
+- Git restores your project to the **exact snapshot** of that commit.  
+- Use soft reset to save work, hard reset to fully wipe unwanted commits.
+
+# Git Log --oneline Notes
+
+The `git log --oneline` command shows a **condensed view of your commit history**.  
+
+- Each line = **one commit**  
+- Format: **Commit ID + Commit Message**  
+
+---
+
+## Example Terminal Output
+
+| Commit ID | Branch/Pointer Info | Commit Message |
+|-----------|-------------------|----------------|
+| 7d5493e | (HEAD -> main) | new line added |
+| 2db8f08 | — | Changes by Tariq Mahoom |
+| 2df18a3 | (origin/function1) | Changes made in html |
+| b0ba3ec | — | Readme file created |
+| 8db439a | — | CSS File Created |
+| 3d0ad17 | — | New HTML file created |
+
+---
+
+## Key Notes
+
+- **Commit ID:** Unique 7-character alphanumeric hash identifying the commit.  
+- **Branch/Pointer Info:** Shows current branch (`HEAD`) and remote tracking branch info.  
+- **Commit Message:** Short description of what was changed.  
+
+✅ Tip: Use `git log --oneline` for a **quick overview** of your project history.
