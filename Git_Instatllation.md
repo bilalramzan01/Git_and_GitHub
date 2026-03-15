@@ -1,12 +1,5 @@
-# Git Installation
-
-Steps to install Git:
-
-1. Go to https://git-scm.com
-2. Download Git for your OS
-3. Run the installer
-
-Check installation:
-
-```bash
-git --version
+Version control System (VCS):
+Tool or software that helps you to track changes made to files over time. It lets you:
+•	Save different versions of projects
+•	Go back to an earlier version
+•	Work with team
